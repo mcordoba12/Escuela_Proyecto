@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detalles del Profesor</title>
+</head>
+<body>
+<h1>Detalles del Profesor</h1>
+
+<div>
+    <!-- Mostrar la información del profesor -->
+    <h2 th:text="${professor.name}"></h2>
+
+    <!-- Mostrar la lista de cursos que tiene a su cargo -->
+    <h3>Cursos a su Cargo</h3>
+    <ul>
+        <li th:each="course : ${courses}">
+            <!-- Cada curso es un enlace a los detalles de la materia -->
+            <a th:href="@{/course/{id}(id=${course.id})}" th:text="${course.name}"></a>
+        </li>
+    </ul>
+</div>
+
+<!-- Enlace para volver a la lista de materias -->
+<a href="/course">Volver a la lista de materias</a>
+
+</body>
+</html>

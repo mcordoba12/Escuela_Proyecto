@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Materias</title>
+    <!-- Enlazar con el archivo CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Lista de Materias</h1>
+
+<!-- Lista de todas las materias -->
+<ul>
+    <li th:each="course : ${courses}">
+        <!-- Hacer clic en el nombre de la materia redirige a los detalles de la materia -->
+        <a th:href="@{/course/{id}(id=${course.id})}" th:text="${course.name}"></a>
+    </li>
+</ul>
+
+</body>
+</html>

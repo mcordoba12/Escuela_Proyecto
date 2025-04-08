@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detalles del Curso</title>
+</head>
+<body>
+<h1>Detalles del Curso</h1>
+
+<div>
+    <h2 th:text="${course.name}"></h2>
+
+    <p><strong>Profesor:</strong> <a th:href="@{/course/professor/{id}(id=${professor.id})}" th:text="${professor.name}"></a></p>
+
+    <h3>Estudiantes Matriculados</h3>
+    <ul>
+        <li th:each="enrollment : ${students}">
+            <span th:text="${enrollment.student.name}"></span>
+        </li>
+    </ul>
+</div>
+
+<a href="/course">Volver a la lista de cursos</a>
+
+</body>
+</html>

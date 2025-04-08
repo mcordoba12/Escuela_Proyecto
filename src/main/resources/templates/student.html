@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Estudiantes</title>
+</head>
+<body>
+<h1 th:text="${greeting}">Lista de Estudiantes</h1>
+
+<!-- Formulario para agregar nuevos estudiantes -->
+<form th:action="@{/student}" method="post" th:object="${student}">
+    <input type="text" th:field="*{name}" placeholder="Name" required>
+    <input type="text" th:field="*{code}" placeholder="Code" required>
+    <input type="text" th:field="*{program}" placeholder="Program" required>
+    <button type="submit">Submit</button>
+</form>
+
+<!-- Lista de estudiantes -->
+<h2>Estudiantes Registrados:</h2>
+<ul>
+    <li th:each="student : ${students}">
+        <!-- Cada nombre de estudiante es un enlace a su detalle -->
+        <a th:href="@{/student/{id}(id=${student.id})}" th:text="${student.name}"></a>
+    </li>
+</ul>
+
+</body>
+</html>
