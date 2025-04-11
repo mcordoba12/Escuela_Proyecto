@@ -1,19 +1,19 @@
 package org.example.introspringboot.service;
 
-import org.example.introspringboot.entity.Course;
+import org.example.introspringboot.dto.CourseDTO;
 import org.example.introspringboot.entity.Student;
 
 import java.util.List;
 
 public interface CourseService {
 
-    Course createCourse(Course course);
+    CourseDTO createCourse(CourseDTO courseDTO);
 
-    List<Course> listCourseOfStudent(long studentId);
+    List<CourseDTO> listCourseOfStudent(long studentId);
 
-    List<Course> getAllCourses();
+    List<CourseDTO> getAllCourses();
 
-    Course getCourseById(long id);
+    CourseDTO getCourseById(long id);
 
     void deleteCourse(long courseId);
 }

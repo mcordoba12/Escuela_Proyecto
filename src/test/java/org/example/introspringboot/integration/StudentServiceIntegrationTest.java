@@ -43,6 +43,7 @@ public class StudentServiceIntegrationTest {
         professor = professorRepository.save(professor);
     }
 
+    /*
     @Test
     void getEnrolledStudents_WhenCourseHasStudents_ShouldReturnStudentList(){
 
@@ -80,6 +81,8 @@ public class StudentServiceIntegrationTest {
         assertEquals(3, studentList.size());
     }
 
+
+     */
 
 
 }

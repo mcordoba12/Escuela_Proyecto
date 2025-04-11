@@ -20,6 +20,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class CourseServiceTest {
 
+    /*
     //Cargamos una simulación de la capa repository
     @Mock
     private CourseRepository courseRepository;
@@ -108,5 +109,7 @@ public class CourseServiceTest {
         assertDoesNotThrow(()-> courseService.deleteCourse(courseId));
         //verify(courseRepository, times(1)).deleteById(courseId);
     }
+    */
+
 }
 

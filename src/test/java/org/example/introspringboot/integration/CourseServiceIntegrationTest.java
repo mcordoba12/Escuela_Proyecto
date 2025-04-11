@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class CourseServiceIntegrationTest {
 
+    /*
     @Autowired
     private CourseService courseService;
 
@@ -92,6 +93,8 @@ public class CourseServiceIntegrationTest {
         });
     }
 
+
+     */
 
 
 

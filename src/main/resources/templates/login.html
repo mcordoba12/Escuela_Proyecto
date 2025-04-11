@@ -5,24 +5,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
-<h1>Login</h1>
+<div class="login-container">
+    <h1>Login</h1>
 
     <form th:action="@{/login}" method="post">
-        <input type="text" id="username" name="username" required>
-        <input type="password" id="password" name="password" required>
+        <input type="text" id="username" name="username" placeholder="Nombre de usuario" required>
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
         <button type="submit">Ingresar</button>
 
         <div th:if="${param.error}">
-            <p style="color: red;">Usuario o contraseña incorrectos</p>
+            <p class="error">Usuario o contraseña incorrectos</p>
         </div>
 
         <div th:if="${param.logout}">
-            <p style="color: green;">Has cerrado sesión correctamente</p>
+            <p class="success">Has cerrado sesión correctamente</p>
         </div>
     </form>
+</div>
+
 </body>
 </html>
