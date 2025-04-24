@@ -5,11 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 
 public class CourseDTO {
     private long id;
     private String name;
     private Long professorId; // solo el ID del profesor
+    private List<StudentDTO> students;
+
 
     public long getId() {
         return id;
@@ -33,5 +37,9 @@ public class CourseDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<StudentDTO> getEstudiantes() {
+        return students;
     }
 }

@@ -10,6 +10,7 @@ import org.example.introspringboot.repository.UserRepository;
 import org.example.introspringboot.service.EnrrollmentService;
 import org.example.introspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
+    @Lazy
     private PasswordEncoder passwordEncoder;
 
 
@@ -37,6 +39,8 @@ public class UserServiceImpl implements UserService {
         user.setPassword(encryptedPassword);
         return userRepository.save(user);
     }
+
+
 
 
 }

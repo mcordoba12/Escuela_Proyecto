@@ -2,6 +2,7 @@ package org.example.introspringboot.util;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.security.Key;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -28,7 +30,7 @@ public class JwtService {
 
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
-                .setClaims(createClaims(userDetails))
+                .addClaims(createClaims(userDetails))
                 .setIssuedAt(now)
                 .setExpiration(expiry)
                 .signWith(Keys.hmacShaKeyFor(secret.getBytes()))
@@ -44,5 +46,15 @@ public class JwtService {
                 .collect(Collectors.toList()));
         return claims;
     }
+
+    public Claims extractAllClaims(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(Keys.hmacShaKeyFor(secret.getBytes()))
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+
+    }
+
 
 }

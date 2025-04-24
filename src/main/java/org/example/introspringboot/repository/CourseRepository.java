@@ -2,6 +2,8 @@ package org.example.introspringboot.repository;
 
 import org.example.introspringboot.entity.Course;
 import org.example.introspringboot.entity.Student;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.swing.text.html.Option;
@@ -12,5 +14,7 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 
 
     Optional <Course> findByName(String name);
+
+    Page<Course> findByNameContainingIgnoreCase(String name, PageRequest pageRequest);
 }
 

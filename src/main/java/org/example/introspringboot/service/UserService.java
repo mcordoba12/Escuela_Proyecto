@@ -10,4 +10,5 @@ public interface UserService {
     User findByEmail(String username);
 
     User createUser (User user);
+
 }
