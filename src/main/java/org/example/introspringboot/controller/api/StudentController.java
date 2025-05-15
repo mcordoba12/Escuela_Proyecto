@@ -62,4 +62,12 @@ public class StudentController {
         return ResponseEntity.ok(studentsPage);
     }
 
+
+    @GetMapping("/all-students")
+    public ResponseEntity<List<Student>> getAllStudents() {
+        // Llamar al servicio para obtener todos los estudiantes
+        List<Student> students = studentService.getAllStudents();
+        return ResponseEntity.ok(students);
+    }
+
 }
